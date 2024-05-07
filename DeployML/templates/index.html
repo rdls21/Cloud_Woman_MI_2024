@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Woman MI</title>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1 class="text-center">Heart Failure Prediction</h1>
+        <form class="p-3 text-center" action="/" method="post">
+            <label for="smoking">Smoking:</label>
+            <select class="form-control" id="smoking" name="smoking">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+            <label for="stroke">Stroke:</label>
+            <select class="form-control" id="stroke" name="stroke">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+            <label for="diffwalking">Difficulty Walking:</label>
+            <select class="form-control" id="diffwalking" name="diffwalking">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+            <label for="agecategory">Age Category:</label>
+            <select class="form-control" id="agecategory" name="agecategory">
+                {% for category in age_categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <label for="diabetic">Diabetic:</label>
+            <select class="form-control" id="diabetic" name="diabetic">
+                {% for category in diabetic_categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <label for="genhealth">General Health:</label>
+            <select class="form-control" id="genhealth" name="genhealth">
+                {% for category in health_categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <label for="asthma">Asthma:</label>
+            <select class="form-control" id="asthma" name="asthma">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+            <label for="kidneydisease">Kidney Disease:</label>
+            <select class="form-control" id="kidneydisease" name="kidneydisease">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+        {% if prediction == 1 %}
+        <p class="text-center">Possible MI</p>
+        {% endif %}
+        {% if prediction == 0 %}
+        <p class="text-center">No Signs of MI</p>
+        {% endif %}
+    </body>
+</html>
